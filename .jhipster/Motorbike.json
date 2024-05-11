@@ -1,0 +1,43 @@
+{
+  "annotations": {
+    "changelogDate": "20240509103218"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "make",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "model",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "BikeStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "AVAILABLE,RENTED,IN_MAINTENANCE"
+    }
+  ],
+  "name": "Motorbike",
+  "relationships": [
+    {
+      "otherEntityName": "rental",
+      "otherEntityRelationshipName": "motorbike",
+      "relationshipName": "rental",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "maintenance",
+      "otherEntityRelationshipName": "motorbike",
+      "relationshipName": "maintenance",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

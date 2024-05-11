@@ -1,0 +1,33 @@
+{
+  "annotations": {
+    "changelogDate": "20240509103221"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "name": "Maintenance",
+  "relationships": [
+    {
+      "otherEntityName": "motorbike",
+      "otherEntityRelationshipName": "maintenance",
+      "relationshipName": "motorbike",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

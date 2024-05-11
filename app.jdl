@@ -1,0 +1,36 @@
+entity Motorbike {
+    make String required,
+    model String required,
+    status BikeStatus required
+}
+
+entity Customer {
+    firstName String required,
+    lastName String required,
+    email String required,
+    password String required
+}
+
+entity Rental {
+    startDate LocalDate required,
+    dueDate LocalDate required,
+    returnDate LocalDate
+}
+
+entity Maintenance {
+    description String,
+    startDate LocalDate required,
+    endDate LocalDate
+}
+
+enum BikeStatus {
+    AVAILABLE, RENTED, IN_MAINTENANCE
+}
+
+relationship OneToMany {
+    Customer{rental} to Rental{customer},
+    Motorbike{rental} to Rental{motorbike},
+    Motorbike{maintenance} to Maintenance{motorbike}
+}
+
+service all with serviceClass
